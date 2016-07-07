@@ -9,9 +9,17 @@ class Solution(object):
         :param b:
         :return: int
         """
-        # to be fixed later
-        return 0
+        while b != 0:
+            c = a & b
+            a = a ^ b
+            b = c << 1
 
-x = Solution()
-print x.get_sum.__doc__
-print x.get_sum(1, 2)
+        return a
+
+def main():
+    x = Solution()
+    print x.get_sum.__doc__
+    print x.get_sum(3, 7)
+
+if __name__ == "__main__":
+    main()
