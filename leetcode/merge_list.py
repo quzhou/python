@@ -15,25 +15,15 @@ class Solution(object):
         :param list2:
         :return: new list
         """
-        if list1 == None:
-            return list2
-        elif list2 == None:
-            return list1
-
-        head = None
-        if list1.data <= list2.data:
-            head = list1
-        else:
-            head = list2
-
-        cur1 = list1.next
-        cur2 = list2.next
-        cur = head
-        while cur1 and cur2:
-            if cur1.data <= cur2.data:
-                cur.next = cur1
-                cur1 = cur1.next
+        curr = dummy = ListNode(0)
+        while list1 and list2:
+            if list1.data < list2.data:
+                curr.next = list1
+                list1 = list1.next
             else:
-                cur.next = cur2
-
+                curr.next = list2
+                list2 = list2.next
+            curr = curr.next
+        curr.next = list1 or list2
+        return dummy.next
 
