@@ -13,6 +13,7 @@ C(0) = 1, C(1) = 1, C(2) = 2. n = 3, the result is:
 """
 
 # Catalan number (A)B
+# http://mathcircle.berkeley.edu/BMC6/pdf0607/catalan.pdf
 # C(i+1) = sigma(0, i) C(k)C(i-k)
 
 class Solution(object):
