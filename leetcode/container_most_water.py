@@ -10,8 +10,21 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        len = len(height)
-        i = left = height[0]
-        j = right = height[len - 1]
+        length = len(height)
+        if length < 2:
+            return 0
+        i = 0
+        j = length - 1
+        max = 0
         while i < j:
-            if
+            size = (j - i) * min(height[i], height[j])
+            if size > max:
+                max = size
+
+            if height[i] < height[j]:
+                i += 1
+            else:
+                j -= 1
+
+        return max
+

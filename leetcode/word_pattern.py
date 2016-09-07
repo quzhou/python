@@ -15,26 +15,33 @@ You may assume pattern contains only lowercase letters, and str contains lowerca
 by a single space.
 """
 
+class Solution(object):
+    def wordPattern(self, pattern, str):
+        """
+        :type pattern: str
+        :type str: str
+        :rtype: bool
+        """
+        l = str.split(" ")
+        size = len(l)
+        if size != len(pattern):
+            return False
 
-def wordPattern(self, pattern, str):
-    pat = {}
-    for i in range(len(pattern)):
-        idx = []
-        if pattern[i] in pat:
-            idx = pat[pattern[i]]
-        idx.append(i)
-        pat[pattern[i]] = idx
+        map1, map2 = {}, {}
+        for i in range(size):
+            if pattern[i] in map1:
+                if map1[pattern[i]] != l[i]:
+                    return False
+            else:
+                map1[pattern[i]] = l[i]
 
-    map = {}
-    strs = str.split(" ")
-    for i in range(len(strs)):
-        index = []
-        if strs[i] in map:
-            index = map[strs[i]]
-        index.append(i)
-        map[strs[i]] = index
+            if l[i] in map2:
+                if map2[l[i]] != pattern[i]:
+                    return False
+            else:
+                map2[l[i]] = pattern[i]
 
-    if len(pat) != len(map):
-        return False
+        return True
 
-    for
+if __name__ == "__main__":
+    print Solution().wordPattern("abba", "dog dog dog dog")
