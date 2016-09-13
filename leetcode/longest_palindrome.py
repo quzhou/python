@@ -4,7 +4,26 @@ and there exists one unique longest palindromic substring.
 """
 
 class Solution(object):
+    # O(n) How to construct suffix array in linear time?
     def longestPalindrome(self, s):
+        size = len(s)
+        max = 0
+        left = right = -1
+        dict = [[False for i in range(size)] for i in range(size)]
+        for i in range(len(s)-1, -1, -1):
+            for j in range(i, len(s)):
+                dict[i][j] = (s[i] == s[j]) and (j - i < 2 or dict[i+1][j-1])
+                if dict[i][j]:
+                    if j - i + 1 > max:
+                        max = j - i + 1
+                        left = i
+                        right = j
+
+        return s[left:right+1]
+
+
+    # O(n^2)
+    def longestPalindrome3(self, s):
         """
         :type s: str
         :rtype: str
@@ -45,7 +64,4 @@ class Solution(object):
             return str
 
 if __name__ == "__main__":
-    print Solution().longestPalindrome("bb")
-
-
-
+    print Solution().longestPalindrome("geeksskeeg")

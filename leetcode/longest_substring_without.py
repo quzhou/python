@@ -11,6 +11,7 @@ Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer 
 "pwke" is a subsequence and not a substring.
 """
 
+# for substring ended at i
 class Solution(object):
     def lengthOfLongestSubstring(self, s):
         maxLen, endLen, startIdx = 0, 0, 0
