@@ -4,7 +4,6 @@ and there exists one unique longest palindromic substring.
 """
 
 class Solution(object):
-    # O(n) How to construct suffix array in linear time?
     def longestPalindrome(self, s):
         size = len(s)
         max = 0
